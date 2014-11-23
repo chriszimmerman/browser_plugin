@@ -1,10 +1,9 @@
 {
   "manifest_version": 2,
-
   "name": "Subdomain Test Utility",
   "description": "This extension allows you to easily navigate to any subdomain of a website specified.",
   "version": "1.0",
-
+  "options_page": "options.html",
   "background":{
 	"scripts": ["tab_opener.js"]
   },
