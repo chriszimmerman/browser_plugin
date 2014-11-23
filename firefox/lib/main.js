@@ -2,6 +2,7 @@ var { ActionButton } = require('sdk/ui/button/action');
 var self = require('sdk/self');
 var tabs = require("sdk/tabs");
 var {Cc, Ci} = require("chrome");
+var preferences = require("sdk/simple-prefs").prefs;
 	
 var button = ActionButton({
   id: "goto-subdomain",
@@ -12,9 +13,8 @@ var button = ActionButton({
 
 function handleClick(state) {
 	var prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
-	var protocol = "http://"; //change this to "https://" if you need HTTPS for your URL
-	//var siteAndRestOfPath = "ENTER THE WEBSITE AND REST OF PATH WITHIN THESE DOUBLE QUOTES"; //Example: ".google.com/"
-	var siteAndRestOfPath = ".google.com"; //Example: ".google.com/"
+	var protocol = "http://"; 
+	var siteAndRestOfPath = preferences.url; //Example: ".google.com/"
 
 	var subdomain = { value: "" };
 	var check = { value: false };
